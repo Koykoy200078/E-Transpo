@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="etranspo.ph">
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -24,15 +25,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ETranspo">
         <activity
-            android:name=".Activity.OTPActivity"
-            android:exported="false" />
-        <activity android:name=".Activity.ChangePasswordActivity" />
-        <activity android:name=".Activity.ForgetPasswordActivity" />
-        <activity android:name=".Activity.RegisterActivity" />
-        <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".Activity.ScannerActivity" />
-        <activity android:name=".Activity.HistoryActivity" />
-        <activity
             android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
@@ -41,6 +33,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <activity android:name=".Activity.RecievedOTPActivity" />
+        <activity android:name=".Activity.ChangePasswordActivity" />
+        <activity android:name=".Activity.ForgetPasswordActivity" />
+        <activity android:name=".Activity.RegisterActivity" />
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.ScannerActivity" />
+        <activity android:name=".Activity.HistoryActivity" />
+    </application>
 </manifest>
