@@ -23,15 +23,15 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.ETranspo">
-
+        <activity
+            android:name=".Activity.OTPActivity"
+            android:exported="false" />
         <activity android:name=".Activity.ChangePasswordActivity" />
         <activity android:name=".Activity.ForgetPasswordActivity" />
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".Activity.MainActivity" />
         <activity android:name=".Activity.ScannerActivity" />
-        <activity android:name=".Activity.HistoryActivity"/>
-
-
+        <activity android:name=".Activity.HistoryActivity" />
         <activity
             android:name=".Activity.LoginActivity"
             android:exported="true">
@@ -42,4 +42,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

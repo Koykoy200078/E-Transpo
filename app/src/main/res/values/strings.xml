@@ -20,8 +20,7 @@
     <string name="register">Register</string>
 
 
-
-    <string translatable="false" name="notify_channel_id">MyDefaultChannelID</string>
-    <string translatable="false" name="notify_channel_name">MyDefaultChannelName</string>
-    <string translatable="false" name="notify_channel_description">MyDefaultChannelDescription</string>
+    <string name="notify_channel_id" translatable="false">MyDefaultChannelID</string>
+    <string name="notify_channel_name" translatable="false">MyDefaultChannelName</string>
+    <string name="notify_channel_description" translatable="false">MyDefaultChannelDescription</string>
 </resources>
