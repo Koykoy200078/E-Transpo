@@ -34,7 +34,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activity.RecievedOTPActivity" />
         <activity android:name=".Activity.ChangePasswordActivity" />
         <activity android:name=".Activity.ForgetPasswordActivity" />
         <activity android:name=".Activity.RegisterActivity" />
