@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "575265304195",
+    "firebase_url": "https://e-transpo-23865-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "e-transpo-23865",
+    "storage_bucket": "e-transpo-23865.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575265304195:android:8b731e406606a2db60f5b6",
+        "android_client_info": {
+          "package_name": "etranspo.ph"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575265304195-sdubvuf07djlcak8dmbcf824umv76p7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmiXGeBm4k0JQz6sFUgM3rpDScJG1pySc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575265304195-sdubvuf07djlcak8dmbcf824umv76p7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

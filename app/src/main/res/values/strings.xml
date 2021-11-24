@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">E-Transpo</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="email_address">Email Address</string>
+    <string name="phone_number">Phone Number (ex. 09123456789)</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="no_account">Don\'t have an account?</string>
+    <string name="login_information">Login Information</string>
+    <string name="full_name">Full Name</string>
+    <string name="nickname">Nickname</string>
+    <string name="address">Address</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="register">Register</string>
+
+
+
+    <string translatable="false" name="notify_channel_id">MyDefaultChannelID</string>
+    <string translatable="false" name="notify_channel_name">MyDefaultChannelName</string>
+    <string translatable="false" name="notify_channel_description">MyDefaultChannelDescription</string>
+</resources>
