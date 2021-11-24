@@ -1,4 +1,4 @@
-package etranspo.ph;
+package etranspo.ph.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
+
+import etranspo.ph.R;
 
 public class ForgetPasswordActivity extends AppCompatActivity
 {

@@ -3,12 +3,7 @@ package etranspo.ph.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,15 +15,10 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import etranspo.ph.Adapter.HistoryAdapter;
-import etranspo.ph.ChangePasswordActivity;
 import etranspo.ph.Entity.History;
-import etranspo.ph.LoginActivity;
-import etranspo.ph.MainActivity;
 import etranspo.ph.R;
 import etranspo.ph.SQLite.ORM.HistoryORM;
-import etranspo.ph.ScannerActivity;
 
 public class HistoryActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 

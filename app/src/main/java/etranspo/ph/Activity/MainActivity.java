@@ -1,4 +1,4 @@
-package etranspo.ph;
+package etranspo.ph.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -49,7 +49,10 @@ import java.util.Map;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import etranspo.ph.Activity.HistoryActivity;
+import etranspo.ph.Entity.ImagesList;
+import etranspo.ph.Adapter.ImagesRecyclerAdapter;
+import etranspo.ph.R;
+import etranspo.ph.Entity.UsersData;
 
 public class MainActivity extends AppCompatActivity
 {

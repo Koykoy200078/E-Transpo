@@ -1,4 +1,4 @@
-package etranspo.ph;
+package etranspo.ph.Activity;
 
 
 import android.content.Intent;
@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Objects;
+
+import etranspo.ph.R;
 
 public class RegisterActivity extends AppCompatActivity
 {

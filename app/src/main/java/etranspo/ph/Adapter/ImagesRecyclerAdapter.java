@@ -1,4 +1,4 @@
-package etranspo.ph;
+package etranspo.ph.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import etranspo.ph.Entity.ImagesList;
+import etranspo.ph.R;
 
 public class ImagesRecyclerAdapter extends RecyclerView.Adapter<ImagesRecyclerAdapter.MyViewHolder>
 {

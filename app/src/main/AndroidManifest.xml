@@ -24,16 +24,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ETranspo">
 
-        <activity android:name=".ChangePasswordActivity" />
-        <activity android:name=".ForgetPasswordActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ScannerActivity" />
+        <activity android:name=".Activity.ChangePasswordActivity" />
+        <activity android:name=".Activity.ForgetPasswordActivity" />
+        <activity android:name=".Activity.RegisterActivity" />
+        <activity android:name=".Activity.MainActivity" />
+        <activity android:name=".Activity.ScannerActivity" />
         <activity android:name=".Activity.HistoryActivity"/>
 
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

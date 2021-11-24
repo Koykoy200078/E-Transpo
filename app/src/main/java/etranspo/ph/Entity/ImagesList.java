@@ -1,4 +1,4 @@
-package etranspo.ph;
+package etranspo.ph.Entity;
 
 public class ImagesList
 {

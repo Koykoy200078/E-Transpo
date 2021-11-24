@@ -1,4 +1,4 @@
-package etranspo.ph;
+package etranspo.ph.Activity;
 
 import android.Manifest;
 import android.app.Dialog;
@@ -28,6 +28,7 @@ import com.google.zxing.Result;
 
 import java.util.Objects;
 
+import etranspo.ph.R;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class ScannerActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler
@@ -52,7 +53,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> startActivity(new Intent(ScannerActivity.this, MainActivity.class)));
 
-        ActivityCompat.requestPermissions(etranspo.ph.ScannerActivity.this,
+        ActivityCompat.requestPermissions(ScannerActivity.this,
                 new String[]{Manifest.permission.CAMERA},
                 1);
 
@@ -115,7 +116,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
                 Intent intent= new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(intent);
                 dialog.dismiss();
-                mScannerView.resumeCameraPreview(etranspo.ph.ScannerActivity.this);
+                mScannerView.resumeCameraPreview(etranspo.ph.Activity.ScannerActivity.this);
             }
         });*/
         copy.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +129,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
                 Toast.makeText(getApplicationContext(), "Copied to clipboard", Toast.LENGTH_SHORT).show();
 
                 dialog.dismiss();
-                mScannerView.resumeCameraPreview(etranspo.ph.ScannerActivity.this);
+                mScannerView.resumeCameraPreview(ScannerActivity.this);
             }
         });
         close.setOnClickListener(v1 ->
@@ -140,7 +141,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {
-                mScannerView.resumeCameraPreview(etranspo.ph.ScannerActivity.this);
+                mScannerView.resumeCameraPreview(ScannerActivity.this);
             }
         });
         dialog.show();
