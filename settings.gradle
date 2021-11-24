@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "E-Transpo"
 include ':app'
+include ':notify'

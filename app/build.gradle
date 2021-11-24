@@ -41,6 +41,8 @@ android {
 }
 
 dependencies {
+    implementation project(':notify')
+
     // Androidx
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.appcompat:appcompat:1.4.0'

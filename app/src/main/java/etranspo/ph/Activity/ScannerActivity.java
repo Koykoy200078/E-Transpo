@@ -2,13 +2,18 @@ package etranspo.ph.Activity;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.app.NotificationManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.icu.util.Calendar;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -28,6 +34,7 @@ import com.google.zxing.Result;
 
 import java.util.Objects;
 
+import etranspo.notify.Notify;
 import etranspo.ph.R;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -60,6 +67,7 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         ViewGroup contentFrame = (ViewGroup) findViewById(R.id.content_frame);
         mScannerView = new ZXingScannerView(this);
         contentFrame.addView(mScannerView);
+
     }
 
     @Override
@@ -135,8 +143,16 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         close.setOnClickListener(v1 ->
         {
             startActivity(new Intent(ScannerActivity.this, MainActivity.class));
-            Toast.makeText(getApplicationContext(), "Sucessful", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_SHORT).show();
+            Notify.build(getApplicationContext())
+                    .setTitle("Successfully Paid")
+                    .setContent("")
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setLargeIcon(R.drawable.ic_done_gr)
+                    .largeCircularIcon()
+                    .setColor(R.color.purple_700)
+                    .show();
+            playNotificationSound();
         });
         dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
@@ -147,17 +163,29 @@ public class ScannerActivity extends AppCompatActivity implements ZXingScannerVi
         dialog.show();
     }
 
+    public void playNotificationSound() {
+        try {
+            Uri alarmSound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
+                    + "://"+ getApplicationContext().getPackageName() + "/" + R.raw.notification);
+            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), alarmSound);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case 1: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                } else {
-                    Toast.makeText(ScannerActivity.this, "Permission denied to camera", Toast.LENGTH_SHORT).show();
-                }
-                return;
+        if (requestCode == 1)
+        {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                Toast.makeText(ScannerActivity.this, "Permission to camera is granted", Toast.LENGTH_SHORT).show();
+            }
+                else
+            {
+                Toast.makeText(ScannerActivity.this, "Permission to camera is denied", Toast.LENGTH_SHORT).show();
             }
         }
     }
