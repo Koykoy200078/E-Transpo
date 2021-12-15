@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.Objects;
 
 import etranspo.ph.R;
+import etranspo.ph.alert.SweetAlertDialog;
 
 public class LoginActivity extends AppCompatActivity
 {
@@ -79,12 +80,13 @@ public class LoginActivity extends AppCompatActivity
     @Override
     public void onBackPressed()
     {
-        new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Exit?")
-                .setMessage("Are you sure you want to close the app?")
-                .setPositiveButton("Yes", (dialog, which) -> finish())
-                .setNegativeButton("No", null)
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Are you sure?")
+                .setContentText("Are you sure you want to close the app?")
+                .setConfirmText("Yes")
+                .setCancelText("No")
+                .showCancelButton(true)
+                .setConfirmClickListener(sDialog -> finish())
                 .show();
     }
 }

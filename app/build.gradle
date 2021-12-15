@@ -42,8 +42,8 @@ android {
 }
 
 dependencies {
-    implementation project(':notify')
     implementation project(':alert')
+    implementation project(':notify')
 
     // Androidx
     implementation 'androidx.multidex:multidex:2.0.1'
@@ -54,12 +54,14 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
 
     // Firebase
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-core'
+    implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-messaging'
     //implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-auth:21.0.1'
     //implementation 'com.google.firebase:firebase-crashlytics'
-    implementation 'com.google.firebase:firebase-storage:20.0.0'
-    implementation 'com.google.firebase:firebase-database:20.0.3'
-    //implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    implementation platform('com.google.firebase:firebase-bom:29.0.2')
 
     // Test
     testImplementation 'junit:junit:4.13.2'
@@ -67,12 +69,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Other's
-    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
-
+    implementation 'com.android.volley:volley:1.2.1'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-
     implementation 'me.dm7.barcodescanner:zxing:1.9.13'
     implementation 'com.jakewharton:butterknife:10.2.3'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 }

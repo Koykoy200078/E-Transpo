@@ -9,19 +9,18 @@ import android.util.TypedValue;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-public class Rotate3dAnimation extends Animation
-{
+public class Rotate3dAnimation extends Animation {
     private int mPivotXType = ABSOLUTE;
     private int mPivotYType = ABSOLUTE;
     private float mPivotXValue = 0.0f;
     private float mPivotYValue = 0.0f;
 
-    private float mFromDegrees;
-    private float mToDegrees;
+    private final float mFromDegrees;
+    private final float mToDegrees;
     private float mPivotX;
     private float mPivotY;
     private Camera mCamera;
-    private int mRollType;
+    private final int mRollType;
 
     public static final int ROLL_BY_X = 0;
     public static final int ROLL_BY_Y = 1;

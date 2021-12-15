@@ -9,8 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-public class SuccessTickView extends View
-{
+public class SuccessTickView extends View {
     private float mDensity = -1;
     private Paint mPaint;
     private final float CONST_RADIUS = dip2px(1.2f);

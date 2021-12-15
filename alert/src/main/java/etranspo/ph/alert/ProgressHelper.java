@@ -4,8 +4,7 @@ import android.content.Context;
 
 import etranspo.ph.materialish_progress.ProgressWheel;
 
-public class ProgressHelper
-{
+public class ProgressHelper {
     private ProgressWheel mProgressWheel;
     private boolean mToSpin;
     private float mSpinSpeed;

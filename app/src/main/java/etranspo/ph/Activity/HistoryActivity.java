@@ -70,24 +70,4 @@ public class HistoryActivity extends AppCompatActivity implements SwipeRefreshLa
         adapter = new HistoryAdapter(historyList);
         historyRecyclerView.setAdapter(adapter);
     }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.history_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item)
-    {
-        int id = item.getItemId();
-        if (id == R.id.clearButton)
-        {
-            h.clearAll(getApplicationContext());
-            Toast.makeText(getApplicationContext(), "The history is cleared, please refresh this page!", Toast.LENGTH_LONG).show();
-        }
-        return true;
-    }*/
-
 }
