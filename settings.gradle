@@ -9,3 +9,5 @@ dependencyResolutionManagement {
 rootProject.name = "E-Transpo"
 include ':app'
 include ':notify'
+include ':alert'
+include ':materialish-progress'

@@ -4,9 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,28 +11,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import etranspo.ph.R;
 
 import java.util.List;
 
 import etranspo.ph.Entity.History;
+import etranspo.ph.R;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
 
     // Variables
-    private List<History> historyList;
+    private final List<History> historyList;
     private Context context;
 
     public HistoryAdapter(List<History> historyList) {
         this.historyList = historyList;
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View v = null;
+        View v;
 
         v = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_item, parent, false);
 
@@ -44,19 +42,17 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         return vh;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(final ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-        holder.context.setText((position + 1) + ". " + historyList.get(position).getContext());
+        holder.context.setText("Successful Paid ₱25 to " + historyList.get(position).getContext());
         holder.date.setText(historyList.get(position).getDate());
-        holder.copy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("", historyList.get(position).getContext());
-                clipboard.setPrimaryClip(clip);
+        holder.copy.setOnClickListener(v -> {
+            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("", historyList.get(position).getContext());
+            clipboard.setPrimaryClip(clip);
 
-                Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show();
-            }
+            Toast.makeText(context, "Logs Copy", Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -65,10 +61,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         return historyList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView context, date;
-        public ImageView search, copy, share;
+        public ImageView copy;
 
         public ViewHolder(View itemView) {
             super(itemView);

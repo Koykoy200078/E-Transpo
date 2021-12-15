@@ -56,8 +56,6 @@ import etranspo.ph.Entity.UsersData;
 
 public class MainActivity extends AppCompatActivity
 {
-    String link = "https://e-transpo-23865-default-rtdb.asia-southeast1.firebasedatabase.app/";
-
     private TextView userName, fullName, phone;
     private CircleImageView circleImageView;
     private ImagesRecyclerAdapter imagesRecyclerAdapter;

@@ -23,7 +23,7 @@ import etranspo.ph.R;
 
 public class ImagesRecyclerAdapter extends RecyclerView.Adapter<ImagesRecyclerAdapter.MyViewHolder>
 {
-    private List<ImagesList> imagesLists;
+    private final List<ImagesList> imagesLists;
     Context context;
 
     public ImagesRecyclerAdapter(List<ImagesList> imagesLists, Context context)
@@ -48,6 +48,7 @@ public class ImagesRecyclerAdapter extends RecyclerView.Adapter<ImagesRecyclerAd
         {
             FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
+            assert firebaseUser != null;
             DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("imageUrl", imagesLists.get(position).getImageUrl());

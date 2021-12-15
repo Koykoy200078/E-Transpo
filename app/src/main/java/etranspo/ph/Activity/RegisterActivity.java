@@ -92,7 +92,7 @@ public class RegisterActivity extends AppCompatActivity
                 FirebaseUser rUser = firebaseAuth.getCurrentUser();
                 assert rUser != null;
                 String userId = rUser.getUid();
-                databaseReference = FirebaseDatabase.getInstance("https://e-transpo-23865-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Users").child(userId);
+                databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("userId", userId);
                 hashMap.put("username", user_name);

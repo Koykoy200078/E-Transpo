@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="@drawable/dialog_background"
     android:layout_width="match_parent"
@@ -34,24 +35,13 @@
         android:layout_height="wrap_content">
 
         <etranspo.ph.CustomWidgets.CustomButton
-            android:id="@+id/copyButton"
-            android:text="Copy"
-            android:textStyle="normal"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:background="@android:color/transparent"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="48dp" />
-
-        <etranspo.ph.CustomWidgets.CustomButton
             android:id="@+id/closeBtn"
-            android:text="Close"
+            android:text="Confirm"
             android:textStyle="normal"
             android:textAllCaps="false"
             android:textSize="20sp"
             android:background="@android:color/transparent"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="48dp" />
 

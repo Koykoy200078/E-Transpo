@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class FontCache {
 
-    private static HashMap<String, Typeface> fontCache = new HashMap<>();
+    private static final HashMap<String, Typeface> fontCache = new HashMap<>();
 
     public static Typeface getTypeface(String fontname, Context context) {
         Typeface typeface = fontCache.get(fontname);

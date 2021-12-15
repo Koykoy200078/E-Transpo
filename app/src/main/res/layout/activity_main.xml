@@ -164,7 +164,7 @@
         android:layout_marginRight="20dp"
         android:layout_gravity="center">
 
-        <androidx.cardview.widget.CardView
+        <!--<androidx.cardview.widget.CardView
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_alignParentStart="true"
@@ -199,13 +199,12 @@
                         android:layout_marginTop="-3dp"/>
                 </LinearLayout>
             </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>-->
 
         <androidx.cardview.widget.CardView
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true"
             app:cardBackgroundColor="@color/purple_200"
             app:cardCornerRadius="20dp">
 
