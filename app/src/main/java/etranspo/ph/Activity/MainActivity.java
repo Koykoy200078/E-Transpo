@@ -126,7 +126,6 @@ public class MainActivity extends AppCompatActivity
         phone = findViewById(R.id.mobile);
         bal = findViewById(R.id.currentBalance);
         circleImageView = findViewById(R.id.profileImage);
-        imageView = findViewById(R.id.reload_account);
         previewView = findViewById(R.id.activity_main_previewView);
         qrCodeFoundButton = findViewById(R.id.activity_main_qrCodeFoundButton);
 
@@ -186,8 +185,9 @@ public class MainActivity extends AppCompatActivity
         });
 
         ImageView history = findViewById(R.id.history);
+        ImageView reloadAcc = findViewById(R.id.reload_account);
         history.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, HistoryActivity.class)));
-
+        reloadAcc.setOnClickListener(v -> Toast.makeText(getApplicationContext(), "You can now reload to your nearest Easyride Dauin Branch.", Toast.LENGTH_SHORT).show());
         qrCodeFoundButton.setVisibility(View.INVISIBLE);
         qrCodeFoundButton.setOnClickListener(v -> {
             if (!SClick.check(SClick.BUTTON_CLICK, 3000)) return;
