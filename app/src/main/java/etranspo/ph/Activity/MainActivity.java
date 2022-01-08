@@ -13,7 +13,6 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.util.Size;
@@ -75,6 +74,7 @@ import etranspo.ph.Entity.ImagesList;
 import etranspo.ph.Entity.UsersData;
 import etranspo.ph.Other.QRCodeFoundListener;
 import etranspo.ph.Other.QRCodeImageAnalyzer;
+import etranspo.ph.Other.SClick;
 import etranspo.ph.R;
 import etranspo.ph.alert.SweetAlertDialog;
 
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity
     private UsersData usersData;
 
     ImageView imageView;
-    Button aaa;
+    Camera camera;
 
     private static final int PERMISSION_REQUEST_CAMERA = 0;
 
@@ -190,39 +190,10 @@ public class MainActivity extends AppCompatActivity
 
         qrCodeFoundButton.setVisibility(View.INVISIBLE);
         qrCodeFoundButton.setOnClickListener(v -> {
-            Toast.makeText(getApplicationContext(), "Please wait a seconds!", Toast.LENGTH_SHORT).show();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(getApplicationContext(), qrCode, Toast.LENGTH_SHORT).show();
-                    Log.i(MainActivity.class.getSimpleName(), "QR Code Found: " + qrCode);
-                    Notify.build(getApplicationContext())
-                            .setTitle("Successfully Paid! - " + currentFare)
-                            .setContent(qrCode)
-                            .setSmallIcon(R.drawable.logo)
-                            .setLargeIcon(R.drawable.ic_done_gr)
-                            .largeCircularIcon()
-                            .setColor(R.color.purple_700)
-                            .show();
-
-                    // adding result to history
-                    String mydate = null;
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        mydate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-                    }
-                    History history001 = new History();
-                    history001.setContext(
-                            "\nDriver Name:\n" + driverName +
-                            "\nPlate Number:\n" + plateNum);
-                    history001.setDate(mydate);
-                    h.add(getApplicationContext(), history001);
-                    playNotificationSound();
-
-                    updateData();
-                }
-            }, 3000);
+            if (!SClick.check(SClick.BUTTON_CLICK, 3000)) return;
+            Toast.makeText(getApplicationContext(), "Please Wait!", Toast.LENGTH_SHORT).show();
+            updateData();
         });
-
         cameraProviderFuture = ProcessCameraProvider.getInstance(this);
         requestCamera();
     }
@@ -243,11 +214,7 @@ public class MainActivity extends AppCompatActivity
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             startCamera();
         } else {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
-            } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
-            }
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
         }
     }
 
@@ -315,7 +282,7 @@ public class MainActivity extends AppCompatActivity
                 qrCodeFoundButton.setVisibility(View.INVISIBLE);
             }
         }));
-        Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, imageAnalysis, preview);
+        camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, imageAnalysis, preview);
     }
 
     private void openImage()
@@ -471,6 +438,27 @@ public class MainActivity extends AppCompatActivity
         else
         {
             updatedCoins = updatedCoins - 25;
+            Toast.makeText(getApplicationContext(), qrCode, Toast.LENGTH_SHORT).show();
+            Log.i(MainActivity.class.getSimpleName(), "QR Code Found: " + qrCode);
+            Notify.build(getApplicationContext())
+                    .setTitle("Successfully Paid! - " + currentFare)
+                    .setContent(qrCode)
+                    .setSmallIcon(R.drawable.logo)
+                    .setLargeIcon(R.drawable.ic_done_gr)
+                    .largeCircularIcon()
+                    .setColor(R.color.purple_700)
+                    .show();
+
+            // adding result to history
+            String mydate = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                mydate = DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+            }
+            History history001 = new History();
+            history001.setContext("\nDriver Name:\n" + driverName + "\nPlate Number:\n" + plateNum);
+            history001.setDate(mydate);
+            h.add(getApplicationContext(), history001);
+            playNotificationSound();
         }
         TextView test001 = findViewById(R.id.test001);
         test001.setText(String.valueOf(updatedCoins));
