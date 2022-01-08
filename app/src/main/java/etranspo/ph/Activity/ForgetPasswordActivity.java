@@ -1,5 +1,6 @@
 package etranspo.ph.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,6 +26,7 @@ public class ForgetPasswordActivity extends AppCompatActivity
     private ProgressBar progressBar;
     private TextView resetState;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

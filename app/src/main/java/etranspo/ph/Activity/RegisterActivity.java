@@ -27,7 +27,7 @@ import etranspo.ph.R;
 
 public class RegisterActivity extends AppCompatActivity
 {
-    private TextInputEditText userName, emailAddress, password, mobile, fullName, address;
+    private TextInputEditText userName, emailAddress, password, mobile, fullName, address, balance;
     private RadioGroup radioGroup;
     private ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
@@ -53,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity
         fullName = findViewById(R.id.fullname);
         address = findViewById(R.id.address);
         radioGroup = findViewById(R.id.radioButton);
+        balance = findViewById(R.id.txt_balance);
         Button registerBtn = findViewById(R.id.register);
         progressBar = findViewById(R.id.progressBar);
         registerBtn.setOnClickListener(v -> {
@@ -62,6 +63,7 @@ public class RegisterActivity extends AppCompatActivity
             final String txt_fullname = Objects.requireNonNull(fullName.getText()).toString();
             final String txt_address = Objects.requireNonNull(address.getText()).toString();
             final String txt_mobile = Objects.requireNonNull(mobile.getText()).toString();
+            String txt_balance001 = Objects.requireNonNull(balance.getText()).toString();
             int checkedId = radioGroup.getCheckedRadioButtonId();
             RadioButton selected_gender = radioGroup.findViewById(checkedId);
             if(selected_gender == null)
@@ -77,13 +79,13 @@ public class RegisterActivity extends AppCompatActivity
                 }
                     else
                 {
-                    register(user_name, email, txt_password, txt_fullname, txt_address, txt_mobile, gender);
+                    register(user_name, email, txt_password, txt_fullname, txt_address, txt_mobile, gender, txt_balance001);
                 }
             }
         });
     }
 
-    private void register(String user_name, String email, String txt_password, String txt_fullname, String txt_address, String txt_mobile, String gender)
+    private void register(String user_name, String email, String txt_password, String txt_fullname, String txt_address, String txt_mobile, String gender, String txt_balance001)
     {
         progressBar.setVisibility(View.VISIBLE);
         firebaseAuth.createUserWithEmailAndPassword(email, txt_password).addOnCompleteListener(task -> {
@@ -101,6 +103,7 @@ public class RegisterActivity extends AppCompatActivity
                 hashMap.put("address", txt_address);
                 hashMap.put("mobile", txt_mobile);
                 hashMap.put("gender", gender);
+                hashMap.put("balance", txt_balance001);
                 hashMap.put("imageUrl", "default");
                 databaseReference.setValue(hashMap).addOnCompleteListener(task1 -> {
                     progressBar.setVisibility(View.GONE);

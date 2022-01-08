@@ -11,7 +11,7 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/activity_bar_layout" />
+        layout="@layout/activity_bar_layout_new" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

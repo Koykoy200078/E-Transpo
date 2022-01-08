@@ -45,7 +45,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(final ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-        holder.context.setText("Successful Paid ₱25 to " + historyList.get(position).getContext());
+        holder.context.setText("Successfully Paid ₱25 to: " + historyList.get(position).getContext());
         holder.date.setText(historyList.get(position).getDate());
         holder.copy.setOnClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);

@@ -1,14 +1,14 @@
 package etranspo.ph.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthCredential;
@@ -23,7 +23,6 @@ import etranspo.ph.R;
 public class ChangePasswordActivity extends AppCompatActivity
 {
     private TextInputEditText oldPsw, newPsw, confirmPsw;
-    private Button changePsw;
     private FirebaseUser firebaseUser;
     private FirebaseAuth firebaseAuth;
     private ProgressBar progressBar;
@@ -44,7 +43,7 @@ public class ChangePasswordActivity extends AppCompatActivity
         oldPsw = findViewById(R.id.oldPassword);
         newPsw = findViewById(R.id.newPassword);
         confirmPsw = findViewById(R.id.confirmPassword);
-        changePsw = findViewById(R.id.resetPassword);
+        Button changePsw = findViewById(R.id.resetPassword);
         progressBar = findViewById(R.id.progressBar);
         changePsw.setOnClickListener(v ->
         {
@@ -73,7 +72,7 @@ public class ChangePasswordActivity extends AppCompatActivity
     private void changePassword(String txtOldPsw, String txtNewPsw)
     {
         progressBar.setVisibility(View.VISIBLE);
-        AuthCredential credential = EmailAuthProvider.getCredential(firebaseUser.getEmail(), txtOldPsw);
+        AuthCredential credential = EmailAuthProvider.getCredential(Objects.requireNonNull(firebaseUser.getEmail()), txtOldPsw);
         firebaseUser.reauthenticate(credential).addOnCompleteListener(task ->
         {
             if (task.isSuccessful())
@@ -89,14 +88,14 @@ public class ChangePasswordActivity extends AppCompatActivity
                     }
                         else
                     {
-                        Toast.makeText(ChangePasswordActivity.this, task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ChangePasswordActivity.this, Objects.requireNonNull(task1.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }
                 else
             {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(ChangePasswordActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChangePasswordActivity.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

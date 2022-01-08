@@ -1,5 +1,6 @@
 package etranspo.ph.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,16 +24,16 @@ import etranspo.ph.SQLite.ORM.HistoryORM;
 public class HistoryActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     // Init ui elements
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.historySwipeRefreshLayout)
     SwipeRefreshLayout historySwipeRefreshLayout;
+    @SuppressLint("NonConstantResourceId")
     @BindView(R.id.historyRecyclerView)
     RecyclerView historyRecyclerView;
 
     // Variables
     HistoryORM h = new HistoryORM();
     List<History> historyList;
-    private RecyclerView.LayoutManager layoutManager;
-    private RecyclerView.Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,26 +49,22 @@ public class HistoryActivity extends AppCompatActivity implements SwipeRefreshLa
 
         historySwipeRefreshLayout.setOnRefreshListener(this);
 
-        layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         historyRecyclerView.setLayoutManager(layoutManager);
         getData();
     }
 
     @Override
     public void onRefresh() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // Отменяем анимацию обновления
-                getData();
-                historySwipeRefreshLayout.setRefreshing(false);
-            }
+        new Handler().postDelayed(() -> {
+            getData();
+            historySwipeRefreshLayout.setRefreshing(false);
         }, 2000);
     }
 
     private void getData() {
         historyList = h.getAll(getApplicationContext());
-        adapter = new HistoryAdapter(historyList);
+        RecyclerView.Adapter adapter = new HistoryAdapter(historyList);
         historyRecyclerView.setAdapter(adapter);
     }
 }

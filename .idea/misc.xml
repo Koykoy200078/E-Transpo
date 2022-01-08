@@ -20,6 +20,7 @@
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/drawable/input_bg.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_background_image.xml" value="0.2" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_bar_layout.xml" value="0.25" />
+        <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_bar_layout_new.xml" value="0.2" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_bottom_dialog.xml" value="0.33" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_change_password.xml" value="0.25" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_fcm_notifications_sender.xml" value="0.2" />
@@ -28,7 +29,7 @@
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_image_layout.xml" value="0.2" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_launch_screen.xml" value="0.2" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_login.xml" value="0.22" />
-        <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_message.xml" value="0.2" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_notification.xml" value="0.25" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_otp.xml" value="0.2" />
@@ -40,6 +41,7 @@
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_select_image_layout.xml" value="0.33" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_send_otp.xml" value="0.1" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
+        <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/back_activity_main.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/backup_layout.xml" value="0.2" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/bar_layout.xml" value="0.2" />
         <entry key="..\:/Users/Franc/AndroidStudioProjects/ETranspo/app/src/main/res/layout/custom_dialog.xml" value="0.2" />

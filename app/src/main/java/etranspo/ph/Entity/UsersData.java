@@ -10,8 +10,17 @@ public class UsersData
     private String mobile;
     private String gender;
     private String imageUrl;
+    private String balance;
 
-    public UsersData(String userId, String username, String email, String fullname, String address, String mobile, String gender, String imageURL)
+    public UsersData(String userId,
+                     String username,
+                     String email,
+                     String fullname,
+                     String address,
+                     String mobile,
+                     String gender,
+                     String imageURL,
+                     String balance)
     {
         this.userId = userId;
         this.username = username;
@@ -21,6 +30,7 @@ public class UsersData
         this.mobile = mobile;
         this.gender = gender;
         this.imageUrl = imageUrl;
+        this.balance = balance;
     }
 
     public UsersData() {
@@ -88,5 +98,15 @@ public class UsersData
 
     public void setImageURL(String imageURL) {
         this.imageUrl = imageURL;
+    }
+
+    public String getBalance()
+    {
+        return balance;
+    }
+
+    public void setBalance(String balance)
+    {
+        this.balance = balance;
     }
 }
