@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity
     private DatabaseReference databaseReference;
     private UsersData usersData;
 
-    ImageView imageView;
     Camera camera;
 
     private static final int PERMISSION_REQUEST_CAMERA = 0;
@@ -132,8 +131,15 @@ public class MainActivity extends AppCompatActivity
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         assert firebaseUser != null;
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
-        storageReference = FirebaseStorage.getInstance().getReference("profile_images");
+        databaseReference = FirebaseDatabase
+                .getInstance()
+                .getReference("Users")
+                .child(firebaseUser.getUid());
+
+        storageReference = FirebaseStorage
+                .getInstance()
+                .getReference("profile_images");
+
         databaseReference.addValueEventListener(new ValueEventListener()
         {
             @SuppressLint("SetTextI18n")
@@ -141,12 +147,14 @@ public class MainActivity extends AppCompatActivity
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
                 usersData = dataSnapshot.getValue(UsersData.class);
-                assert usersData != null;
+
                 //bal.setText(Integer.toString(Math.toIntExact(usersData.getBalance())));
+                assert usersData != null;
                 bal.setText(usersData.getBalance());
                 //userName.setText("("+ usersData.getUsername()+")");
                 fullName.setText(usersData.getFullname());
                 phone.setText(usersData.getMobile());
+
                 if(usersData.getImageURL().equals("default"))
                 {
                     circleImageView.setImageResource(R.drawable.default_picture);
@@ -244,17 +252,19 @@ public class MainActivity extends AppCompatActivity
     private void bindCameraPreview(@NonNull ProcessCameraProvider cameraProvider) {
         previewView.setPreferredImplementationMode(PreviewView.ImplementationMode.SURFACE_VIEW);
 
-        Preview preview = new Preview.Builder()
+        Preview preview = new Preview
+                .Builder()
                 .build();
 
-        CameraSelector cameraSelector = new CameraSelector.Builder()
+        CameraSelector cameraSelector = new CameraSelector
+                .Builder()
                 .requireLensFacing(CameraSelector.LENS_FACING_BACK)
                 .build();
 
         preview.setSurfaceProvider(previewView.createSurfaceProvider());
 
-        ImageAnalysis imageAnalysis =
-                new ImageAnalysis.Builder()
+        ImageAnalysis imageAnalysis = new ImageAnalysis
+                        .Builder()
                         .setTargetResolution(new Size(1280, 720))
                         .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                         .build();
@@ -282,7 +292,9 @@ public class MainActivity extends AppCompatActivity
                 qrCodeFoundButton.setVisibility(View.INVISIBLE);
             }
         }));
+
         camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, imageAnalysis, preview);
+
     }
 
     private void openImage()
@@ -438,11 +450,12 @@ public class MainActivity extends AppCompatActivity
         else
         {
             updatedCoins = updatedCoins - 25;
+
             Toast.makeText(getApplicationContext(), qrCode, Toast.LENGTH_SHORT).show();
             Log.i(MainActivity.class.getSimpleName(), "QR Code Found: " + qrCode);
             Notify.build(getApplicationContext())
                     .setTitle("Successfully Paid! - " + currentFare)
-                    .setContent(qrCode)
+                    .setContent("Driver Name: " + driverName +"\n" + "Plate Number: " + plateNum)
                     .setSmallIcon(R.drawable.logo)
                     .setLargeIcon(R.drawable.ic_done_gr)
                     .largeCircularIcon()
