@@ -3,6 +3,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+        storeFile file('C:\\Users\\Franc\\AndroidStudioProjects\\releaseME.jks')
+            storePassword 'koykoy123'
+            keyPassword 'koykoy123'
+            keyAlias 'key0'
+        }
+    }
     compileSdk 31
 
     defaultConfig {
